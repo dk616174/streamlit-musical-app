@@ -59,7 +59,7 @@ if song_query:
     else:
         st.warning("No matching songs found.")
 
-st.header("➕ Can't find you song? Go ahead and add it so everyone can see!")
+st.header("➕ Can't find your song? Go ahead and add it so everyone can see!")
 
 with st.form("add_song_form"):
     title = st.text_input("Title")
