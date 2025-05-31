@@ -7,7 +7,7 @@ st.set_page_config(page_title="Song App", layout="centered")
 st.title("Song Lookup and Rating App")
 
 # Input box
-song_query = st.text_input("Search by song title, artist, album, or genre (or type '~' to see all):")
+song_query = st.text_input("Search by song title, artist, album, or genre:")
 
 # Helper to display song info nicely
 def display_song(song: classes.Song):
