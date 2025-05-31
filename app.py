@@ -58,3 +58,28 @@ if song_query:
             st.info(f"⭐ Average Rating: {avg if avg else 'No ratings yet.'}")
     else:
         st.warning("No matching songs found.")
+
+st.header("➕ Add a New Song")
+
+with st.form("add_song_form"):
+    title = st.text_input("Title")
+    artist = st.text_input("Artist")
+    album = st.text_input("Album")
+    minutes = st.number_input("Duration Minutes", min_value=0, value=3)
+    seconds = st.number_input("Duration Seconds", min_value=0, max_value=59, value=30)
+    genre = st.text_input("Genre")
+    track_no = st.number_input("Track Number", min_value=1, value=1)
+
+    submitted = st.form_submit_button("Add Song")
+
+    if submitted:
+        new_song = classes.Song(
+            title=title,
+            artist=artist,
+            album=album,
+            duration=classes.Duration(minutes, seconds),
+            genre=genre,
+            track_no=int(track_no)
+        )
+        samples.songs.append(new_song)
+        st.success(f"🎉 '{title}' by {artist} added to the song list!")
